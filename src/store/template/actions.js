@@ -1,4 +1,1 @@
-
-// export const myActions = async ({commit})=> {
-
-// }
+// las acciones son async
