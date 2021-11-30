@@ -8,13 +8,21 @@
                 <span class="mx-2 fs-4 fw-light"> {{yearDay}} </span>
             </div>
             <div>
+
+                <input type="file"
+                @change="onSelectedImage"
+                ref="imgSelector"
+                v-show="false"
+                accept="image/png, image/jpeg">
+
                 <button v-if="entry.id"
                  @click="onDeleteEntry"
                  class="btn btn-danger mx-2">
                     Borrar
                     <i class="fa fa-trash-alt"></i>
                 </button>
-                <button class="btn btn-primary ">
+                <button class="btn btn-primary "
+                @click="onSelectImg">
                     Subir foto
                     <i class="fa fa-upload"></i>
                 </button>
@@ -26,8 +34,18 @@
             v-model="entry.text"
             placeholder="Qué sucedió hoy?"></textarea>
         </div>
-        <img 
+        <!-- <img 
         src="https://sm.ign.com/t/ign_latam/screenshot/default/snk-temporada-final_uneb.1280.jpg" 
+        alt="entry-picture"
+        class="img-thumbnail"> -->
+        <img 
+        v-if="entry.picture && !localImage"
+        :src="entry.picture" 
+        alt="entry-picture"
+        class="img-thumbnail">
+        <img 
+        v-if="localImage"
+        :src="localImage" 
         alt="entry-picture"
         class="img-thumbnail">
     </template>
@@ -39,7 +57,10 @@
 <script>
 import {defineAsyncComponent} from 'vue'
 import {mapGetters, mapActions} from 'vuex'
+// helper de la fecha
 import getDate from '../helpers/getDate'
+//helper de cloudinary
+import uploadImage from '../helpers/uploadImg'
 
 // alertas sweetalert2
 import Swal from 'sweetalert2'
@@ -56,10 +77,14 @@ export default {
     },
     data(){
         return{
-            entry: null
+            entry: null,
             // entry: {
             //     text: ''
             // }
+            //data del localImage
+            localImage: null,
+            //data del archivo en cuestión
+            file: null
         }
     },
     computed: {
@@ -105,6 +130,11 @@ export default {
             })
             Swal.showLoading()
 
+            //agregamos la subida de imagen aquí
+            const pic = await uploadImage( this.file )
+            //console.log(pic);
+            this.entry.picture = pic
+
             if (this.entry.id) {
                 //actualizar entrada
                 await this.updateEntry( this.entry )
@@ -114,8 +144,9 @@ export default {
                 //redirección
                 this.$router.push({name: 'entry', params:{ id: id } })
             }
-             Swal.fire('Guardado', 'Entrada registrada con éxito', 'success')
-            //this.updateEntry( this.entry )   
+            this.file = null 
+            Swal.fire('Guardado', 'Entrada registrada con éxito', 'success')
+            //this.updateEntry( this.entry )  
         },
         async onDeleteEntry(){
             //console.log('delete', this.entry);
@@ -142,6 +173,34 @@ export default {
             await this.deleteEntry( this.entry.id )
 
             this.$router.push({name: 'no-entry'})*/
+        },
+        onSelectedImage( event ){
+
+            //console.log(event.target.files[0]);
+            //desestructuramos la data del evento y creamos la instancia
+            const file = event.target.files[0]
+            if (!file) {
+                //si cancela la subida de imagen, queda vacío
+                this.localImage = null
+                this.file = null
+                return
+            }
+            //el file de la data
+            this.file = file
+            //FileReader ya viene en JS, creamos una nueva instancia FileReader
+            const fr = new FileReader()
+            //la instancia con la propiedad onload es una funcion en la que se iguala la data al resultado de fr
+            fr.onload= () => this.localImage = fr.result
+            // file es la data que queremos mostrar
+            fr.readAsDataURL( file )
+            
+        },
+        onSelectImg(){
+            // buscamos la ref del input de la imagen
+            //console.log(this.$refs);
+            //usamos el nombre dado en el ref del input
+            this.$refs.imgSelector.click()
+            //document.querySelector('input').click()
         }
     },
     created() {
