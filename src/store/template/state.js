@@ -1,7 +1,4 @@
-
-
 export default () => ({
-    isLoading: true,
-    entries: []
-
-})
+  isLoading: true,
+  entries: [],
+});

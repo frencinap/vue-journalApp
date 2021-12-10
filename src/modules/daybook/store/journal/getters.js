@@ -1,17 +1,19 @@
+export const getEntries =
+  (state) =>
+  (term = "") => {
+    if (term.length === 0) return state.entries;
 
+    return state.entries.filter((entry) =>
+      entry.text.toLowerCase().includes(term.toLocaleLowerCase())
+    );
+  };
 
-export const getEntries = (state) => ( term = '') => {
+export const getEntryById =
+  (state) =>
+  (id = "") => {
+    const entry = state.entries.find((entry) => entry.id === id);
 
-    if(term.length === 0) return state.entries
-    
-    return state.entries.filter( entry => entry.text.toLowerCase().includes( term.toLocaleLowerCase() ) )
-}
+    if (!entry) return;
 
-export const getEntryById = (state) => ( id='' )=>{
-
-    const entry = state.entries.find( entry => entry.id === id)
-
-    if (!entry) return
-
-    return {...entry}
-}
+    return { ...entry };
+  };

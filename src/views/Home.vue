@@ -10,11 +10,10 @@
 
 <script>
 export default {
-   methods: {
-     goDaybook(){
-       this.$router.push({name: 'no-entry'})
-     }
-   } 
-}
+  methods: {
+    goDaybook() {
+      this.$router.push({ name: "no-entry" });
+    },
+  },
+};
 </script>
-

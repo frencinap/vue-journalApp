@@ -1,3 +1,4 @@
+// Paleta de colores personalizada
 $theme-colors: (
   "primary":    #2c3e50,
   "secondary":  #1d6042,
@@ -9,8 +10,10 @@ $theme-colors: (
   "dark":       #343a40,
 );
 
+//importacion del modulo bootstrap.scss
 @import 'node_modules/bootstrap/scss/bootstrap.scss';
 
+//clase personalizada utilizada en el proyecto
 .pointer{
   cursor: pointer;
 }

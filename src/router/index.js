@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import Home from "../views/Home.vue";
-import daybookRouter from '../modules/daybook/router'
+import daybookRouter from "../modules/daybook/router";
 
 const routes = [
   {
@@ -18,10 +18,10 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
   {
-    path: '/daybook',
+    path: "/daybook",
     //usamos spread Operator para importar el router
-    ...daybookRouter
-  }
+    ...daybookRouter,
+  },
 ];
 
 const router = createRouter({
