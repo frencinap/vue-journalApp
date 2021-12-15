@@ -9,7 +9,7 @@ export const journalState = {
         },
         {
             id: '-MpmRh4B5XVHCfekM6Px',
-            text : "Probando mock data",
+            text : "Probando mock data en la segunda entrada",
             date : 1638302643613
         }
     ]

@@ -154,6 +154,8 @@ export default {
     },
     async onDeleteEntry() {
       //console.log('delete', this.entry);
+      //console.log para mostrar que se llamo durante el testing
+      //console.log('se llamó el botón de eliminar');
 
       const { isConfirmed } = await Swal.fire({
         title: "Estás seguro?",
@@ -161,12 +163,16 @@ export default {
         showDenyButton: true,
         confirmButtonText: "Si, estoy seguro",
       });
+      // clg para usar en testing
+      //console.log({isConfirmed});
+
       if (isConfirmed) {
-        new Swal({
+        Swal.fire({
           title: "Espere por favor",
           allowOutsideClick: false,
         });
         Swal.showLoading();
+        //console.log('a punto de eliminar');
         await this.deleteEntry(this.entry.id);
         this.$router.push({ name: "no-entry" });
 

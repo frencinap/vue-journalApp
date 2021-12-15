@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en el EntryView.vue Debe de mostrar la entrada correctamente 1`] = `
+<!-- Arreglar display en mobile -->
+<div class="entry-title d-flex justify-content-between p-2">
+  <div><span class="text-success fs-3 fw-bold">29</span><span class="mx-1 fs-3 fw-bold">Noviembre</span><span class="mx-2 fs-4 fw-light">2021, Lunes</span></div>
+  <div><input type="file" accept="image/png, image/jpeg" style="display: none;"><button class="btn btn-danger mx-2"> Borrar <i class="fa fa-trash-alt"></i></button><button class="btn btn-primary"> Subir foto <i class="fa fa-upload"></i></button></div>
+</div>
+<hr>
+<div class="d-flex flex-column px-3 h-75"><textarea placeholder="Qué sucedió hoy?"></textarea></div>
+<!-- <img 
+        src="https://sm.ign.com/t/ign_latam/screenshot/default/snk-temporada-final_uneb.1280.jpg" 
+        alt="entry-picture"
+        class="img-thumbnail"> -->
+<!--v-if-->
+<!--v-if-->
+<fab-stub icon="fa-save"></fab-stub>
+`;
