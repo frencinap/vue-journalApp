@@ -27,7 +27,7 @@ export const updateEntry = async ({ commit }, entry) => {
   //esta es la data que queremos guardar
   const dataToSave = { date, picture, text };
   const resp = await journalApi.put(`/entries/${entry.id}.json`, dataToSave);
-  //console.log(resp);
+  console.log(resp);
   //commit de la mutación
   //commit("updateEntry", { ...entry });
   //pequeño cambio en relación a la sección de pruebas
