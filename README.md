@@ -1,7 +1,7 @@
 # Journal App
 
 Proyecto Journal App, puedes hacer login con el usuario pre existente o bien, registrarte e ingresar a la aplicacion.
-[Ir a la app](https://journal-app-b89ff2.netlify.app/#/)
+ Haz click [aquí](https://journal-app-b89ff2.netlify.app/#/) para ir a la app.
 ```
 La idea del proyecto es la de un diario de vida virtual, en el cual puedes registrar con nombre y 
 fecha entradas en las que escribas lo que desees. También puedes adjuntar una imagen en cada
