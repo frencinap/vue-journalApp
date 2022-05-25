@@ -3,7 +3,9 @@
 Proyecto Journal App, puedes hacer login con el usuario pre existente o bien, registrarte e ingresar a la aplicacion.
 [Ir a la app](https://journal-app-b89ff2.netlify.app/#/)
 ```
-La idea del proyecto es la de un diario de vida virtual, en el cual puedes registrar con nombre y fecha entradas en las que escribas lo que desees y también agregar una foto relacionada a la entrada si quieres.
+La idea del proyecto es la de un diario de vida virtual, en el cual puedes registrar con nombre y 
+fecha entradas en las que escribas lo que desees. También puedes adjuntar una imagen en cada
+entrada del diario.
 ```
 
 
