@@ -1,4 +1,8 @@
-# 07-journal
+# Journal App
+```
+Proyecto Journal App, puedes hacer login con el usuario pre existente o bien, registrarte e ingresar a la aplicacion.
+[Ir a la app](https://journal-app-b89ff2.netlify.app/#/)
+```
 
 ## Project setup
 ```
